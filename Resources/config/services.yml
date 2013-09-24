@@ -1,6 +1,8 @@
 services:
-  pugx.i18n.event.adapter:
+  pugx.i18n.orm.event.adapter:
     class:     PUGX\I18nBundle\Mapping\Event\Adapter\ORM\DoctrineAdapter
+  pugx.i18n.odm.mongodb.event.adapter:
+    class:     PUGX\I18nBundle\Mapping\Event\Adapter\ODM\MongoDB\MongoDBAdapter
   pugx.i18n.locale:
       class:     PUGX\I18nBundle\Locale\Locale
       arguments: [%locale%]    
@@ -9,8 +11,13 @@ services:
       arguments: ["@pugx.i18n.locale"]
       tags:
           - { name: kernel.event_subscriber }
-  pugx.i18n.translatable_listener:
+  pugx.i18n.orm.translatable_listener:
       class:     PUGX\I18nBundle\Listener\TranslatableListener
-      arguments: ["@pugx.i18n.event.adapter", "@pugx.i18n.locale"]
+      arguments: ["@pugx.i18n.orm.event.adapter", "@pugx.i18n.locale"]
       tags:
           - { name: doctrine.event_subscriber }
+  pugx.i18n.odm.mongodb.translatable_listener:
+      class:     PUGX\I18nBundle\Listener\TranslatableListener
+      arguments: ["@pugx.i18n.odm.mongodb.event.adapter", "@pugx.i18n.locale"]
+      tags:
+          - { name: doctrine_mongodb.odm.event_subscriber}

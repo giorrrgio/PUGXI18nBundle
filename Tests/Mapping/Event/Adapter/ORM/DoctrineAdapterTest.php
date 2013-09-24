@@ -1,6 +1,6 @@
 <?php
 
-namespace PUGX\I18nBundle\Tests\Mapping\Event\Adpapter\ORM;
+namespace PUGX\I18nBundle\Tests\Mapping\Event\Adapter\ORM;
 
 use PUGX\I18nBundle\Mapping\Event\Adapter\ORM\DoctrineAdapter;
 use PUGX\I18nBundle\Tests\Translatable;
