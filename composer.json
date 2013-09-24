@@ -20,6 +20,7 @@
         "php": ">=5.3.3",
         "symfony/framework-bundle": "dev-master",
         "doctrine/orm": ">=2.2,<2.4-dev",
+        "doctrine/mongodb-odm": "1.0.*@dev",
         "symfony/yaml": "2.1.*"
     },
 
